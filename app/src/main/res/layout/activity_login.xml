@@ -57,25 +57,31 @@
             android:orientation="vertical"
             android:id="@+id/text_input">
 
-            <EditText
-                android:id="@+id/editTextText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="60dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Username" />
 
-            <EditText
-                android:id="@+id/editTextTextPassword"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="60dp"
-                android:ems="10"
-                android:inputType="textPassword" />
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="360dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20sp"
+                    android:drawableLeft="@drawable/baseline_person_24"
+                    android:hint="UserName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="360dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20sp"
+                    android:drawableLeft="@drawable/lock_svgrepo_com"
+                    android:hint="Password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
