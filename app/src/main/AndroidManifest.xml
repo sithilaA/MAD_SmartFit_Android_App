@@ -13,6 +13,27 @@
         android:theme="@style/Theme.MAD_SmartFit_Android_App"
         tools:targetApi="31">
         <activity
+            android:name=".NutritionistDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AssignWorkoutToUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerAddWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PendingAppointmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutsActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserNotificationSettingsActivity"
             android:exported="false" />
         <activity
@@ -55,7 +76,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".WorkoutsActivity"
+            android:name=".TrainerDashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScheduleAppointmentActivity">
-
+    tools:context=".TrainerAddWorkoutActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,21 +15,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
             >
-            <ImageButton
-                android:layout_width="66sp"
-                android:layout_height="66sp"
-                android:layout_margin="5sp"
-                android:background="@drawable/baseline_arrow_back_24"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="80sp"
+                    android:layout_height="80sp"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/baseline_arrow_back_24"></ImageButton>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Schedule Appointment"
-                android:textSize="26sp"
-                android:layout_margin="5sp"
+                android:text="Add Workout"
+                android:textSize="36sp"
+                android:layout_margin="10dp"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textColor="#03045e">
@@ -50,47 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_person_24"
-                    android:hint="Trainer" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="160sp"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="130sp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20sp"
-                        android:drawableLeft="@drawable/date_svg"
-                        android:hint="Date" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="160sp"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="130sp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20sp"
-                        android:drawableLeft="@drawable/time_svg"
-                        android:hint="Time" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_alternate_email_24"
-                    android:hint="Resone" />
+                    android:hint="Workout Name" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -101,8 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/card_svg"
-                    android:hint="Card Number" />
+                    android:hint="Type" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -112,8 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/card_svg"
-                    android:hint="Exp Date" />
+                    android:hint="Duration" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -124,8 +88,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/card_svg"
-                    android:hint="Card Holder Name" />
+                    android:hint="Calories Burned" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20sp"
+                    android:hint="Video Link" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20sp"
+                    android:hint="Notes" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -142,11 +126,11 @@
                 android:layout_margin="10dp"
                 android:text="Submit"
                 android:backgroundTint="#0077b6"
-                android:textSize="30sp">
-            </Button>
+                android:textSize="20sp"></Button>
 
 
         </LinearLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
