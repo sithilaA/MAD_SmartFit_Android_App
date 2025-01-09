@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NutritionPlanActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#CAF0F8">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="66sp"
+                android:layout_height="66sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/baseline_arrow_back_24"
+                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Nutrition Plan "
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#0096c7"
+                android:layout_margin="10sp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_margin="10sp"
+                android:backgroundTint="#00B4D8"
+                android:text="Dinner"
+                android:textSize="18sp">
+            </Button>
+            <Button
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_margin="10sp"
+                android:backgroundTint="#00B4D8"
+                android:text="Lunch"
+                android:textSize="18sp">
+            </Button>
+            <Button
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_margin="10sp"
+                android:backgroundTint="#00B4D8"
+                android:text="Breakf"
+                android:textSize="17sp">
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="350sp"
+                android:layout_height="350sp"
+                android:layout_margin="20sp"
+                android:background="@drawable/finished_workouts_shape"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pre-Workout Meal"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protein: Grilled chicken (100g) or a boiled egg"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carbs: Brown rice (1/2 cup) or a banana"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fats: A small handful of almonds (5-6)"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10sp">
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

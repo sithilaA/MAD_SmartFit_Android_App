@@ -12,15 +12,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="-44dp"
-        tools:layout_editor_absoluteY="-240dp">
+        tools:layout_editor_absoluteY="-240dp"
+        android:background="#CAF0F8">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Smart"
+                android:textStyle="bold"
                 android:textSize="68dp">
             </TextView>
             <TextView
@@ -28,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="FIT"
                 android:textSize="68dp"
+                android:textStyle="bold"
                 android:textColor="#E91E63"
                 android:fontFamily="monospace"
                 >
@@ -103,12 +107,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="9dp"
                     android:text="Sign In"
+                    android:backgroundTint="#0077b6"
                     android:textSize="26dp"></Button>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="9dp"
                     android:text="Sign Up"
+                    android:backgroundTint="#0077b6"
                     android:textSize="26dp"></Button>
             </LinearLayout>
         </LinearLayout>
