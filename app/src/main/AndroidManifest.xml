@@ -22,7 +22,7 @@
             android:name=".NutritionPlanActivity"
             android:exported="false" />
         <activity
-            android:name=".NutritionPlanActivity"
+            android:name=".WorkoutsHistoryActivity"
             android:exported="false" />
         <activity
             android:name=".UserDashboardActivity"
