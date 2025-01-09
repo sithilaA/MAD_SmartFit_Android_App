@@ -125,7 +125,7 @@
                     android:layout_gravity="right"
                     android:layout_width="150sp"
                     android:layout_height="150sp"
-                    android:background="@drawable/workout_03"
+                    android:background="@drawable/workout_04"
                     tools:ignore="SpeakableTextPresentCheck">
                 </ImageView>
             </LinearLayout>
@@ -140,10 +140,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90sp">
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100sp"
+                android:layout_height="match_parent"
                 android:gravity="center"
                 android:background="#90E0EF"
                 >
