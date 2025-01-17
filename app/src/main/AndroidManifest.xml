@@ -13,6 +13,18 @@
         android:theme="@style/Theme.MAD_SmartFit_Android_App"
         tools:targetApi="31">
         <activity
+            android:name=".NutritionSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AssignMealToUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionAddMealActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionMealActivity"
+            android:exported="false" />
+        <activity
             android:name=".NutritionistDashboardActivity"
             android:exported="false" />
         <activity
@@ -70,7 +82,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name="TrainerDashboardActivity"
+            android:name=".TrainerDashboardActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
