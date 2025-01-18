@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AssignWorkoutToUserActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#CAF0F8">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="80sp"
+                    android:layout_height="80sp"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/baseline_arrow_back_24"
+                    tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Assign Workout To User"
+                android:textSize="36sp"
+                android:layout_margin="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="#03045e">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0077B6"
+                android:text="Select user"
+                android:textSize="28sp">
+            </Button>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="150sp"
+            android:layout_margin="20sp"
+            android:background="#90E0EF"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cardio Kickstart"
+                    android:textSize="26sp"
+                    android:layout_margin="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10sp">
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right">
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:background="@drawable/workout_03"
+                    tools:ignore="SpeakableTextPresentCheck">
+                </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="150sp"
+            android:layout_margin="20sp"
+            android:background="#90E0EF"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Power Hour"
+                    android:textSize="26sp"
+                    android:layout_margin="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10sp">
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right">
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:background="@drawable/workout_04"
+                    tools:ignore="SpeakableTextPresentCheck">
+                </ImageView>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:gravity="right">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0077B6"
+                android:text="Add New One"
+                android:textSize="28sp">
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

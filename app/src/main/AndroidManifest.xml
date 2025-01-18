@@ -13,7 +13,82 @@
         android:theme="@style/Theme.MAD_SmartFit_Android_App"
         tools:targetApi="31">
         <activity
+            android:name=".NutritionSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AssignMealToUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionAddMealActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionMealActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionistDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AssignWorkoutToUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerAddWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PendingAppointmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserNotificationSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserAccountSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NearestHospitalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SOSCallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutSessionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScheduleAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutsHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainerDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
