@@ -67,11 +67,13 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userName"
                     android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/baseline_person_24"
-                    android:hint="UserName" />
+                    android:hint="UserName"
+                    android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -79,11 +81,13 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/lock_svgrepo_com"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -103,19 +107,23 @@
                 android:padding="9px">
 
                 <Button
+                    android:id="@+id/btnSignIn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="9dp"
                     android:text="Sign In"
                     android:backgroundTint="#0077b6"
-                    android:textSize="26dp"></Button>
+                    android:textSize="26dp"
+                    android:onClick="onSignInClick"></Button>
                 <Button
+                    android:id="@+id/btnSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="9dp"
                     android:text="Sign Up"
                     android:backgroundTint="#0077b6"
-                    android:textSize="26dp"></Button>
+                    android:textSize="26dp"
+                    android:onClick="onSignUpClick"></Button>
             </LinearLayout>
         </LinearLayout>
 

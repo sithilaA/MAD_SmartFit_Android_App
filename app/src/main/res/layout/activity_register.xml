@@ -43,7 +43,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/baseline_person_24"
-                    android:hint="UserName" />
+                    android:hint="UserName"
+                    android:inputType="textPersonName"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +57,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/user_svgrepo_com"
-                    android:hint="Full Name" />
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -66,7 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/baseline_alternate_email_24"
-                    android:hint="Email" />
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -78,18 +82,25 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/phone_flip_svgrepo_com"
-                    android:hint="Phone Number" />
+                    android:hint="Phone Number"
+                    android:inputType="phone"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteGender"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/gender_mark_1_svgrepo_com"
-                    android:hint="Gender" />
+                    android:layout_height="50dp"
+                    android:layout_margin="20dp"
+                    android:drawableStart="@drawable/gender_mark_1_svgrepo_com"
+                    android:focusable="false"
+                    android:hint="Select Gender"
+                    android:inputType="none"
+                    android:padding="15dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +112,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20sp"
                     android:drawableLeft="@drawable/lock_svgrepo_com"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -112,22 +124,25 @@
             android:gravity="center"
             >
             <Button
+                android:id="@+id/btnSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:text="Sign Up"
                 android:backgroundTint="#0077b6"
-                android:textSize="20sp"></Button>
+                android:textSize="20sp"
+                android:onClick="onSignUpClick"></Button>
             <Button
+                android:id="@+id/btnSignIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:text="Sign In"
                 android:backgroundTint="#0077b6"
-                android:textSize="20sp"></Button>
-
+                android:textSize="20sp"
+                android:onClick="onSignInClick"></Button>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,9 +156,6 @@
                 android:textSize="26sp"
                 android:textAlignment="center">
             </TextView>
-
         </LinearLayout>
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
