@@ -11,8 +11,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UserDashboardActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +29,14 @@ public class UserDashboardActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
+
+
     }
 
     public void onSettingsClick(View view) {
         startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
     }
+
 }
