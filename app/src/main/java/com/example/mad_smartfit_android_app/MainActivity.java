@@ -9,10 +9,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -27,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
+        if(fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(),UserDashboardActivity.class));
+            finish();
+        }
+        else {
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            finish();
+        }
     }
 }

@@ -331,11 +331,13 @@
                     android:background="@drawable/dumbbells_svg"
                     tools:ignore="SpeakableTextPresentCheck"></ImageButton>
                 <ImageButton
+                    android:id="@+id/btnSettings"
                     android:layout_width="50sp"
                     android:layout_height="50sp"
                     android:background="@drawable/setting_svg"
                     android:layout_marginLeft="40sp"
                     tools:ignore="SpeakableTextPresentCheck"
+                    android:onClick="onSettingsClick"
                     >
                 </ImageButton>
             </LinearLayout>
