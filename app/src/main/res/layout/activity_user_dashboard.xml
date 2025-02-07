@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAF0F8"
+    android:background="@color/backgroundColor"
     tools:context=".UserDashboardActivity">
 
     <!-- User Greeting Section -->
@@ -29,6 +29,7 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/userGreetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hi, UserName"
@@ -203,22 +204,26 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
+            android:id="@+id/btnBookAppointment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:text="Book Appointment"
             android:textSize="16sp"
-            android:backgroundTint="#0077B6" />
+            android:backgroundTint="@color/buttonColor"
+            android:onClick="onBookAppointmentClick"/>
 
         <Button
+            android:id="@+id/btnNutritionPlan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
             android:text="Nutrition Plan"
             android:textSize="16sp"
-            android:backgroundTint="#0077B6" />
+            android:backgroundTint="@color/buttonColor"
+            android:onClick="onNutritionPlanClick"/>
     </LinearLayout>
 
     <!-- News Feed Section -->
@@ -349,36 +354,37 @@
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#90E0EF"
+        android:layout_height="100sp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:background="#90E0EF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/btnHome"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            />
 
         <ImageButton
-            android:id="@+id/btnWorkouts"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:id="@+id/btnWorkout"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="40sp"
             android:background="@drawable/dumbbells_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onWorkoutClick"/>
 
         <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:background="@drawable/setting_svg"
-            android:onClick="onSettingsClick"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_marginLeft="40sp"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,151 +5,114 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".UserAccountSettingsActivity">
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/tv_account_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Setting"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/titleColor"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_username"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#CAF0F8"
-        >
-        <LinearLayout
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_account_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Account Setting"
-                android:textSize="36sp"
-                android:layout_margin="10dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="#03045e">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
+            android:hint="UserName"
+            android:drawableLeft="@drawable/baseline_person_24"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/til_username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp"
-            >
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:hint="Full Name"
+            android:drawableLeft="@drawable/user_svgrepo_com"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_person_24"
-                    android:hint="UserName" />
-            </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/til_fullname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/user_svgrepo_com"
-                    android:hint="Full Name" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_alternate_email_24"
-                    android:hint="Email" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/phone_flip_svgrepo_com"
-                    android:hint="Phone Number" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/gender_mark_1_svgrepo_com"
-                    android:hint="Gender" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/lock_svgrepo_com"
-                    android:hint="Password" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:text="Save"
-                android:backgroundTint="#0077b6"
-                android:textSize="20sp"></Button>
+            android:hint="Email"
+            android:drawableLeft="@drawable/baseline_alternate_email_24"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:background="#90E0EF"
-            >
-            <ImageButton
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:background="@drawable/home_svg"
-                tools:ignore="SpeakableTextPresentCheck"
-                >
-            </ImageButton>
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textSize="20sp"
+        android:backgroundTint="@color/buttonColor"
+        app:layout_constraintTop_toBottomOf="@id/til_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
 
-            <ImageButton
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:layout_marginLeft="40sp"
-                android:background="@drawable/dumbbells_svg"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-            <ImageButton
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:background="@drawable/setting_svg"
-                android:layout_marginLeft="40sp"
-                tools:ignore="SpeakableTextPresentCheck"
-                >
-            </ImageButton>
-        </LinearLayout>
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:gravity="center"
+        android:background="#90E0EF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/home_svg"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="40sp"
+            android:background="@drawable/dumbbells_svg"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/setting_svg"
+            android:layout_marginLeft="40sp"
+            tools:ignore="SpeakableTextPresentCheck"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

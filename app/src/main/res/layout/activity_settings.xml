@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAF0F8"
+    android:background="@color/backgroundColor"
     tools:context=".SettingsActivity">
 
     <!-- Title Section -->
@@ -18,7 +18,7 @@
         android:layout_marginTop="20dp"
         android:text="Settings"
         android:textAlignment="center"
-        android:textColor="#03045e"
+        android:textColor="@color/titleColor"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#0077B6"
+                android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="Account Setting"
                 android:textSize="20sp" />
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#0077B6"
+                android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="Notification Setting"
                 android:textSize="20sp" />
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#0077B6"
+                android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="SOS Setting"
                 android:textSize="20sp" />
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#0077B6"
+                android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="Help and support"
                 android:textSize="20sp" />
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#0077B6"
+                android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="About"
                 android:textSize="20sp" />
@@ -93,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="#0077B6"
+                android:backgroundTint="@color/buttonColor"
                 android:onClick="onSignOutClick"
                 android:paddingHorizontal="20dp"
                 android:text="Sign Out"
@@ -107,34 +107,31 @@
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#90E0EF"
+        android:layout_height="100sp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:background="#90E0EF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
-            android:id="@+id/btnHome"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:background="@drawable/home_svg"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
-            android:id="@+id/btnWorkouts"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="40sp"
             android:background="@drawable/dumbbells_svg"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:background="@drawable/setting_svg"
+            android:layout_marginLeft="40sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>

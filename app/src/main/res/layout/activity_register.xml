@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAF0F8"
+    android:background="@color/backgroundColor"
     tools:context=".RegisterActivity">
 
     <!-- Create Account Title -->
@@ -17,7 +17,7 @@
         android:textSize="36sp"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:textColor="#03045e"
+        android:textColor="@color/titleColor"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,6 +120,26 @@
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- User Type Dropdown -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_marginBottom="16dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/acUserType"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:drawableStart="@drawable/user_type_svg"
+                android:drawablePadding="8dp"
+                android:focusable="false"
+                android:hint="Select User Type"
+                android:inputType="none"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -149,7 +169,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.9">
-
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="0dp"
@@ -157,10 +176,9 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:text="Sign Up"
-            android:backgroundTint="#0077b6"
+            android:backgroundTint="@color/buttonColor"
             android:textSize="20sp"
             android:onClick="onSignUpClick" />
-
         <Button
             android:id="@+id/btnSignIn"
             android:layout_width="0dp"
@@ -168,11 +186,10 @@
             android:layout_weight="1"
             android:layout_marginStart="8dp"
             android:text="Sign In"
-            android:backgroundTint="#0077b6"
+            android:backgroundTint="@color/buttonColor"
             android:textSize="20sp"
             android:onClick="onSignInClick" />
     </LinearLayout>
-
     <!-- Footer Text -->
     <TextView
         android:id="@+id/footerText"

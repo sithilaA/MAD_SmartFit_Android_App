@@ -5,114 +5,128 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:padding="10dp"
     tools:context=".PendingAppointmentsActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#CAF0F8">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <ImageButton
-                android:layout_width="66sp"
-                android:layout_height="66sp"
-                android:layout_margin="10sp"
-                android:background="@drawable/baseline_arrow_back_24"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-        </LinearLayout>
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_margin="10sp"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Pending Appointment"
+        android:textColor="@color/titleColor"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backButton" />
+
+    <!-- Appointment Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appointmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="15dp"
+        android:background="@drawable/finished_workouts_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText">
+
+        <!-- Appointment Details -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:id="@+id/appointmentDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/actionButtons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
+                android:id="@+id/appointmentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pending Appointment"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="#0096c7"
-                android:layout_margin="10sp">
-            </TextView>
+                android:layout_marginLeft="10dp"
+                android:text="Appointment 01"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/appointmentDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Date: 2024/11/26"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/appointmentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Time: 20:00"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/appointmentStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Status: Pending"
+                android:textColor="#FF9800"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Action Buttons -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/actionButtons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            >
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:layout_width="350sp"
-                android:layout_height="250sp"
-                android:layout_margin="20sp"
-                android:background="@drawable/finished_workouts_shape"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Appointment 01"
-                        android:textSize="34sp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="10sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date 2024/11/26"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_margin="10sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Time 20:00"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_margin="10sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Status : Pending"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_margin="10sp">
-                    </TextView>
+            <ImageButton
+                android:id="@+id/videoButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/video_svg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom"
-                    android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/delete_svg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/videoButton"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-                    <ImageButton
-                        android:layout_width="70sp"
-                        android:layout_height="70sp"
-                        android:layout_margin="10sp"
-                        android:background="@drawable/video_svg"
-                        tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageButton
-                        android:layout_width="70sp"
-                        android:layout_height="70sp"
-                        android:layout_margin="10sp"
-                        android:background="@drawable/delete_svg"
-                        tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-                </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

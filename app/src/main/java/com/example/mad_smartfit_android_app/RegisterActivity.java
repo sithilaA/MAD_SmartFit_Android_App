@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     TextInputEditText mUserName , mFullName , mEmail , mMobileNumber , mPassword;
-    AutoCompleteTextView mGender ;
+    AutoCompleteTextView mGender , mUserType;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
@@ -69,13 +69,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Reference AutoCompleteTextView
         mGender = findViewById(R.id.acGender);
-
+        mUserType = findViewById(R.id.acUserType);
         // Gender options
         String[] genders = {"Male", "Female"};
-
+        String[] userTypes = {"Client", "Trainer","Nutrition"};
         // Create ArrayAdapter and set it to AutoCompleteTextView
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, genders);
         mGender.setAdapter(adapter);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, userTypes);
+        mUserType.setAdapter(adapter2);
 
     }
 
@@ -96,6 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
         String fullName = this.mFullName.getText().toString();
         String mobileNumber = this.mMobileNumber.getText().toString();
         String gender = this.mGender.getText().toString();
+        String userType = this.mUserType.getText().toString();
 
         if (TextUtils.isEmpty(gender)){
             mGender.setError("Gender is required.");
@@ -127,6 +130,11 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this,"Password is required.",Toast.LENGTH_LONG).show();
             return;
         }
+        if(TextUtils.isEmpty(userType)){
+            mUserType.setError("User Type is required.");
+            Toast.makeText(RegisterActivity.this,"User Type is required.",Toast.LENGTH_LONG).show();
+            return;
+        }
         if(password.length() < 6){
             mPassword.setError("Password must be >= 6 characters");
             Toast.makeText(RegisterActivity.this,"Password must be >= 6 characters",Toast.LENGTH_LONG).show();
@@ -146,6 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
                     user.put("email",email);
                     user.put("mobileNumber",mobileNumber);
                     user.put("gender",gender);
+                    user.put("userType",userType);
                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
