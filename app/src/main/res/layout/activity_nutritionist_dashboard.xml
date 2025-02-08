@@ -29,6 +29,7 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/userGreetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hi, UserName"
@@ -65,22 +66,26 @@
 
         <!-- In Pending Appointment Button -->
         <Button
+            android:id="@+id/btnPendingAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="In Pending Appointment"
             android:textSize="24sp"
             android:backgroundTint="@color/buttonColor"
             android:layout_marginBottom="16dp"
-            app:layout_constraintWidth_percent="0"/>
+            app:layout_constraintWidth_percent="0"
+            android:onClick="onPendingAppointmentClick"/>
 
         <!-- Today Appointment Button -->
         <Button
+            android:id="@+id/btnTodayAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today Appointment"
             android:textSize="24sp"
             android:backgroundTint="@color/buttonColor"
-            app:layout_constraintWidth_percent="0" />
+            app:layout_constraintWidth_percent="0"
+            android:onClick="onTodayAppointmentClick"/>
     </LinearLayout>
 
     <!-- News Feed Section -->
@@ -225,19 +230,22 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
+            android:id="@+id/btnNutrition"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="40sp"
             android:background="@drawable/nutrition_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onNutritionClick"/>
 
         <ImageButton
+            android:id="@+id/btnSettings"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/setting_svg"
             android:layout_marginLeft="40sp"
             tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"
              />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

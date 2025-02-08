@@ -1,12 +1,16 @@
 package com.example.mad_smartfit_android_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class TrainerSettingsActivity extends AppCompatActivity {
 
@@ -20,5 +24,21 @@ public class TrainerSettingsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void onSignOutClick(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
+
+    public void onHomeClick(View view) {
+        startActivity(new Intent(getApplicationContext(), TrainerDashboardActivity.class));
+        finish();
+    }
+
+    public void onWorkoutClick(View view) {
+        startActivity(new Intent(getApplicationContext(), TrainerWorkoutActivity.class));
+        finish();
     }
 }

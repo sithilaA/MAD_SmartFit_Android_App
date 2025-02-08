@@ -41,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onSignInClick(View view) {
+        if (!NetworkUtils.isInternetAvailable(this)) {
+            Toast.makeText(LoginActivity.this, "No internet connection. Please check your network.", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         String email = this.mEmail.getText().toString();
         String password = this.mPassword.getText().toString();

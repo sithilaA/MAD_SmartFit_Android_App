@@ -32,7 +32,7 @@
                 android:id="@+id/userGreetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi, UserName"
+                android:text="Welcome"
                 android:textSize="36sp" />
 
             <TextView

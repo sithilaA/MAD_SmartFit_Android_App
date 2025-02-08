@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:text="Add New Meal"
             android:backgroundTint="@color/buttonColor"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:onClick="onAddNewMealClick"/>
 
         <Button
             android:id="@+id/addMealToUserButton"
@@ -50,7 +51,8 @@
             android:text="Add Meal to user"
             android:backgroundTint="@color/buttonColor"
             android:textSize="24sp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:onClick="onAddNewMealToUserClick"/>
 
     </LinearLayout>
 
@@ -136,24 +138,28 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/btnHome"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
 
         <ImageButton
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="40sp"
-            android:background="@drawable/dumbbells_svg"
+            android:background="@drawable/nutrition_svg"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
+            android:id="@+id/btnSettings"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/setting_svg"
             android:layout_marginLeft="40sp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="OnClick,SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"/>
 
     </LinearLayout>
 

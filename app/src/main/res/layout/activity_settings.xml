@@ -115,17 +115,21 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/btnHome"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="OnClick,SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
 
         <ImageButton
+            android:id="@+id/btnWorkout"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="40sp"
             android:background="@drawable/dumbbells_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onWorkoutClick"/>
 
         <ImageButton
             android:layout_width="50sp"

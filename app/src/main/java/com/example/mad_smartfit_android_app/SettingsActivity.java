@@ -31,4 +31,14 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
+
+    public void onHomeClick(View view) {
+        startActivity(new Intent(getApplicationContext(),UserDashboardActivity.class));
+        finish();
+    }
+
+    public void onWorkoutClick(View view) {
+        startActivity(new Intent(getApplicationContext(),WorkoutsActivity.class));
+        finish();
+    }
 }

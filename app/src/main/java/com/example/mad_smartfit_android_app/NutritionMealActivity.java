@@ -1,6 +1,8 @@
 package com.example.mad_smartfit_android_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,22 @@ public class NutritionMealActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void onSettingsClick(View view) {
+        startActivity(new Intent(getApplicationContext(), NutritionSettingsActivity.class));
+    }
+
+    public void onHomeClick(View view) {
+        startActivity(new Intent(getApplicationContext(), NutritionistDashboardActivity.class));
+
+    }
+
+    public void onAddNewMealClick(View view) {
+        startActivity(new Intent(getApplicationContext(), NutritionAddMealActivity.class));
+    }
+
+    public void onAddNewMealToUserClick(View view) {
+        startActivity(new Intent(getApplicationContext(), AssignMealToUserActivity.class));
     }
 }

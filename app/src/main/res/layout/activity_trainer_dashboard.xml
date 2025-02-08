@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".NutritionistDashboardActivity">
+    tools:context=".TrainerDashboardActivity">
 
     <!-- User Greeting Section -->
     <LinearLayout
@@ -29,9 +29,10 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/userGreetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi, UserName"
+                android:text="Hi, Welcome"
                 android:textSize="36sp" />
 
             <TextView
@@ -65,29 +66,33 @@
 
         <!-- In Pending Appointment Button -->
         <Button
+            android:id="@+id/btnPendingAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="In Pending Appointment"
             android:textSize="24sp"
             android:backgroundTint="@color/buttonColor"
             android:layout_marginBottom="16dp"
-            app:layout_constraintWidth_percent="0"/>
+            app:layout_constraintWidth_percent="0"
+            android:onClick="onPendingAppointmentClick"/>
 
         <!-- Today Appointment Button -->
         <Button
+            android:id="@+id/btnTodayAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today Appointment"
             android:textSize="24sp"
             android:backgroundTint="@color/buttonColor"
-            app:layout_constraintWidth_percent="0" />
+            app:layout_constraintWidth_percent="0"
+            android:onClick="onTodayAppointmentClick"/>
     </LinearLayout>
 
     <!-- News Feed Section -->
     <HorizontalScrollView
         android:id="@+id/newsFeedSection"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="300sp"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -95,10 +100,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,99 +116,10 @@
                 android:layout_marginBottom="8dp" />
 
             <LinearLayout
+                android:id="@+id/news_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <!-- News Item 1 -->
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:orientation="vertical"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/finished_workouts_shape"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Top Headlines Today"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="Read More"
-                        android:textColor="#0077B6" />
-                </LinearLayout>
-
-                <!-- News Item 2 -->
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:orientation="vertical"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/finished_workouts_shape"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Top Headlines Today"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="Read More"
-                        android:textColor="#0077B6" />
-                </LinearLayout>
-
-                <!-- News Item 3 -->
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:orientation="vertical"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/finished_workouts_shape"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Top Headlines Today"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="Read More"
-                        android:textColor="#0077B6" />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
@@ -225,19 +142,22 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
+            android:id="@+id/btnWorkout"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="40sp"
             android:background="@drawable/dumbbells_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onWorkoutClick"/>
 
         <ImageButton
+            android:id="@+id/btnSettings"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/setting_svg"
             android:layout_marginLeft="40sp"
             tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"
             />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

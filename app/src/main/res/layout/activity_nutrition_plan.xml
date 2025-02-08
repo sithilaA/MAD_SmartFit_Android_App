@@ -17,7 +17,8 @@
         android:background="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onBackClick"/>
 
     <!-- Title -->
     <TextView

@@ -28,6 +28,7 @@
         android:id="@+id/settingsButtonsContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="30sp"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
@@ -37,41 +38,55 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
 
         <Button
-            android:id="@+id/accountSettingsButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnAccountSetting"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/buttonColor"
+            android:paddingHorizontal="20dp"
             android:text="Account Setting"
-            android:textSize="26sp"
-            android:backgroundTint="@color/buttonColor" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/notificationSettingsButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnNotificationSetting"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/buttonColor"
+            android:paddingHorizontal="20dp"
             android:text="Notification Setting"
-            android:textSize="26sp"
-            android:backgroundTint="@color/buttonColor" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/helpSupportButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnHelpSupport"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/buttonColor"
+            android:paddingHorizontal="20dp"
             android:text="Help and support"
-            android:textSize="26sp"
-            android:backgroundTint="@color/buttonColor" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/aboutButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnAbout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/buttonColor"
+            android:paddingHorizontal="20dp"
             android:text="About"
-            android:textSize="26sp"
-            android:backgroundTint="@color/buttonColor" />
+            android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/buttonColor"
+            android:onClick="onSignOutClick"
+            android:paddingHorizontal="20dp"
+            android:text="Sign Out"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <!-- Bottom Navigation -->
@@ -86,24 +101,30 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/btnHome"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
 
         <ImageButton
+            android:id="@+id/btnWorkout"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="40sp"
             android:background="@drawable/nutrition_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onNutritionClick"
+            />
 
         <ImageButton
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/setting_svg"
             android:layout_marginLeft="40sp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            />
 
     </LinearLayout>
 

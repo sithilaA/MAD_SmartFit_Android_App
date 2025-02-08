@@ -31,7 +31,8 @@
         app:layout_constraintTop_toBottomOf="@id/titleText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:onClick="onAddWorkoutClick"/>
 
     <Button
         android:id="@+id/btnAddWorkoutToUser"
@@ -43,7 +44,8 @@
         app:layout_constraintTop_toBottomOf="@id/btnAddWorkout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:onClick="onAddWorkoutToUserClick"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/workoutCard1"
@@ -117,10 +119,12 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/btnHome"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
 
         <ImageButton
             android:layout_width="50sp"
@@ -130,11 +134,13 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
+            android:id="@+id/btnSettings"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/setting_svg"
             android:layout_marginLeft="40sp"
             tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"
             />
     </LinearLayout>
 

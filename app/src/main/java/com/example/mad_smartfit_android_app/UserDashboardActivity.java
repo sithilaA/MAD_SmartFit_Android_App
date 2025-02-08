@@ -49,16 +49,19 @@ public class UserDashboardActivity extends AppCompatActivity {
 
     public void onSettingsClick(View view) {
         startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
-
+        finish();
     }
     public void onBookAppointmentClick(View view) {
         startActivity(new Intent(getApplicationContext(),AppointmentActivity.class));
+
     }
     public void onNutritionPlanClick(View view) {
         startActivity(new Intent(getApplicationContext(),NutritionPlanActivity.class));
+
     }
     public void onWorkoutClick(View view) {
         startActivity(new Intent(getApplicationContext(),WorkoutsActivity.class));
+        finish();
     }
     //Set userName to TextView
     private void getUserName() {

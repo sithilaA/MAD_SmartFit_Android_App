@@ -38,8 +38,8 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintDimensionRatio="7:3">
-
+        app:layout_constraintDimensionRatio="7:3"
+        >
         <!-- Workout Details -->
         <LinearLayout
             android:layout_width="0dp"
@@ -48,14 +48,17 @@
             android:orientation="vertical"
             android:gravity="center"
             android:padding="16dp">
-
             <TextView
+                android:id="@+id/workoutTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:focusable="true"
                 android:text="Full-Body Blast"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:onClick="onWorkoutCardClick"
+                android:clickable="true"/>
         </LinearLayout>
 
         <!-- Workout Image -->
@@ -167,25 +170,30 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/btnHome"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
 
         <ImageButton
+            android:id="@+id/btnWorkouts"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="40sp"
             android:background="@drawable/dumbbells_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onWorkoutsClick"/>
 
         <ImageButton
+            android:id="@+id/btnSettings"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:background="@drawable/setting_svg"
             android:layout_marginLeft="40sp"
             tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"
             />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
