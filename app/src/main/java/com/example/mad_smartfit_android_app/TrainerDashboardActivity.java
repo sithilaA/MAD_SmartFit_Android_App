@@ -58,6 +58,7 @@ public class TrainerDashboardActivity extends AppCompatActivity {
         newsContainer = findViewById(R.id.news_container);
 
         fetchNewsData();
+
     }
 
     public void onWorkoutClick(View view) {
@@ -106,7 +107,7 @@ public class TrainerDashboardActivity extends AppCompatActivity {
         }
     }
     private void fetchNewsData() {
-        db.collection("news")
+        db.collection("news_feed")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
