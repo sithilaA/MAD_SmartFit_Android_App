@@ -56,75 +56,16 @@
 
     </LinearLayout>
 
-    <!-- Meal Cards Container -->
-    <LinearLayout
-        android:id="@+id/mealCardsContainer"
+    <!-- RecyclerView for Meal Cards -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mealRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/buttonsContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
-
-        <!-- First Meal Card -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150sp"
-            android:layout_margin="20sp"
-            android:background="@color/cardColor"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Milk rice"
-                android:textSize="26sp"
-                android:layout_margin="10sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10sp" />
-
-            <ImageView
-                android:layout_width="150sp"
-                android:layout_height="150sp"
-                android:layout_gravity="right"
-                android:background="@drawable/meal_01"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-        </LinearLayout>
-
-        <!-- Second Meal Card -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150sp"
-            android:layout_margin="20sp"
-            android:background="@color/cardColor"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Chicken biryani"
-                android:textSize="26sp"
-                android:layout_margin="10sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10sp" />
-
-            <ImageView
-                android:layout_width="150sp"
-                android:layout_height="150sp"
-                android:layout_gravity="right"
-                android:background="@drawable/meal_02"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation" />
 
     <!-- Bottom Navigation -->
     <LinearLayout

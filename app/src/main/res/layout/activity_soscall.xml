@@ -18,11 +18,12 @@
         android:background="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onBackClick"/>
 
     <!-- Hospital Map Button -->
     <ImageButton
-        android:id="@+id/mapButton"
+        android:id="@+id/btnFindHospitals"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -30,7 +31,8 @@
         android:background="@drawable/map_point_hospital_svg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        />
 
     <!-- SOS Button -->
     <LinearLayout
@@ -83,21 +85,25 @@
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:background="@drawable/ambulance_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onAmbulanceClick"/>
+
+        <ImageButton
+            android:id="@+id/btnSosNumber01"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/call_medicine_rounded_svg"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSosNumber01Click"/>
 
         <ImageButton
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:background="@drawable/call_medicine_rounded_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/call_medicine_rounded_svg"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSosNumber02Click"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

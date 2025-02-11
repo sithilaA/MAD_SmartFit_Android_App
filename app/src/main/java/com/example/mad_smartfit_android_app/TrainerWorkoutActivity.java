@@ -9,8 +9,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mad_smartfit_android_app.adapter.WorkoutAdapter;
+import com.example.mad_smartfit_android_app.model.Workout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TrainerWorkoutActivity extends AppCompatActivity {
+
+    private RecyclerView workoutRecyclerView;
+    private WorkoutAdapter workoutAdapter;
+    private List<Workout> workoutList;
+    private FirebaseFirestore db;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +40,34 @@ public class TrainerWorkoutActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        workoutRecyclerView = findViewById(R.id.workoutRecyclerView);
+        workoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        workoutList = new ArrayList<>();
+        workoutAdapter = new WorkoutAdapter(workoutList);
+        workoutRecyclerView.setAdapter(workoutAdapter);
+
+        db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+        fetchWorkouts();
+    }
+
+    private void fetchWorkouts() {
+        String currentUserId = auth.getCurrentUser().getUid();
+        db.collection("workouts")
+                .whereEqualTo("trainerUserId", currentUserId)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        workoutList.clear();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Workout workout = document.toObject(Workout.class);
+                            workoutList.add(workout);
+                        }
+                        workoutAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     public void onHomeClick(View view) {
@@ -36,7 +82,6 @@ public class TrainerWorkoutActivity extends AppCompatActivity {
 
     public void onAddWorkoutClick(View view) {
         startActivity(new Intent(getApplicationContext(), TrainerAddWorkoutActivity.class));
-
     }
 
     public void onAddWorkoutToUserClick(View view) {

@@ -16,19 +16,25 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.mad_smartfit_android_app.model.NewsItem;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class UserDashboardActivity extends AppCompatActivity {
 
-    private TextView userGreetingText;
+    private TextView userGreetingText, tvFinishedWorkouts, tvTimeSpent;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private LinearLayout newsContainer;
@@ -51,6 +57,8 @@ public class UserDashboardActivity extends AppCompatActivity {
 
         // Reference to TextView
         userGreetingText = findViewById(R.id.userGreetingText);
+        tvFinishedWorkouts = findViewById(R.id.tvFinishedWorkouts);
+        tvTimeSpent = findViewById(R.id.tvTimeSpent);
 
         // Fetch and display username
         getUserName();
@@ -58,7 +66,8 @@ public class UserDashboardActivity extends AppCompatActivity {
         newsContainer = findViewById(R.id.news_container);
 
         fetchNewsData();
-
+        getTodaysWorkoutHistoryCount(tvFinishedWorkouts);
+        getTodaysWorkoutSummary(tvTimeSpent);
     }
 
     public void onSettingsClick(View view) {
@@ -134,4 +143,93 @@ public class UserDashboardActivity extends AppCompatActivity {
             newsContainer.addView(newsItemView);
         }
     }
+
+    public void onTextViewClick(View view) {
+        Toast.makeText(this, "TextView clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void getTodaysWorkoutHistoryCount(TextView textView) {
+        // Get the current user's ID
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Get today's date in the format you store in Firestore (e.g., "yyyy-MM-dd")
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String todayDate = dateFormat.format(new Date());
+
+        // Reference to the Firestore collection
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Query to filter records
+        Query query = db.collection("user-workout-history")
+                .whereEqualTo("userId", userId) // Match the current user's ID
+                .whereEqualTo("dateWorkoutDone", todayDate); // Match today's date
+
+        // Execute the query
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                QuerySnapshot querySnapshot = task.getResult();
+                if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                    int count = querySnapshot.size(); // Get the count of matching records
+                    // Set the count to the TextView
+                    textView.setText(String.valueOf(count));
+                } else {
+                    // No records found for today
+                    textView.setText("00");
+                }
+            } else {
+                // Handle errors
+                textView.setText("Error fetching records");
+                System.out.println("Error fetching records: " + task.getException().getMessage());
+            }
+        });
+    }
+
+    public void getTodaysWorkoutSummary(TextView textView) {
+        // Get the current user's ID
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Get today's date in the format you store in Firestore (e.g., "yyyy-MM-dd")
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String todayDate = dateFormat.format(new Date());
+
+        // Reference to the Firestore collection
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Query to filter records
+        Query query = db.collection("user-workout-history")
+                .whereEqualTo("userId", userId) // Match the current user's ID
+                .whereEqualTo("dateWorkoutDone", todayDate); // Match today's date
+
+        // Execute the query
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                QuerySnapshot querySnapshot = task.getResult();
+                if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                    int totalWorkouts = querySnapshot.size(); // Total number of workouts
+                    long totalDurationMillis = 0;
+
+                    // Calculate total duration in milliseconds
+                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                        long duration = document.getLong("duration");
+                        totalDurationMillis += duration;
+                    }
+
+                    // Convert total duration to minutes
+                    long totalDurationMinutes = totalDurationMillis / (1000 * 60);
+
+                    // Update the TextView
+                    String summary =  String.valueOf(totalDurationMinutes);
+                    textView.setText(summary);
+                } else {
+                    // No records found for today
+                    textView.setText("00");
+                }
+            } else {
+                // Handle errors
+                textView.setText("Error fetching records");
+                System.out.println("Error fetching records: " + task.getException().getMessage());
+            }
+        });
+    }
+
 }

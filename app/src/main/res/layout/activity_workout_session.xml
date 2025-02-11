@@ -16,13 +16,12 @@
         android:background="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onBackClick"/>
     <ImageView
         android:id="@+id/workoutImage"
         android:layout_width="0dp"
         android:layout_height="400sp"
-        android:background="@drawable/workout_03"
         app:layout_constraintTop_toBottomOf="@id/backButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -58,7 +57,8 @@
         android:background="@drawable/youtube_color_svg"
         app:layout_constraintEnd_toStartOf="@id/sosButton"
         app:layout_constraintTop_toBottomOf="@id/workoutDescription"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onYoutubeClick"/>
 
     <ImageButton
         android:id="@+id/sosButton"
@@ -68,15 +68,42 @@
         android:background="@drawable/sos_button_svg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/workoutDescription"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onSosClick"/>
+    <Button
+        android:id="@+id/endButton"
+        android:layout_width="170dp"
+        android:layout_height="65dp"
+        android:backgroundTint="@color/buttonColor"
+        android:text="End"
+        android:layout_margin="10sp"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/youtubeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <TextView
+        android:id="@+id/countdownTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_margin="20sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/youtubeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/startButton"/>
     <Button
         android:id="@+id/startButton"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_width="170dp"
+        android:layout_height="65dp"
         android:backgroundTint="@color/buttonColor"
+        android:layout_margin="20sp"
         android:text="Start"
-        android:textSize="38sp"
+        android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/youtubeButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

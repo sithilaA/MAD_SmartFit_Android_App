@@ -26,7 +26,7 @@
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Assign Meal To User"
+        android:text="Assign Workout To User"
         android:textSize="36sp"
         android:textAlignment="center"
         android:textStyle="bold"
@@ -37,63 +37,59 @@
         app:layout_constraintTop_toBottomOf="@id/backButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Select User Button -->
-    <Button
-        android:id="@+id/selectUserButton"
-        android:layout_width="0dp"
+    <!-- Input Container -->
+    <LinearLayout
+        android:id="@+id/inputContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select user"
-        android:textSize="28sp"
-        android:backgroundTint="@color/buttonColor"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="20dp"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Meal Card 1 -->
-    <LinearLayout
-        android:id="@+id/mealCard1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:background="@color/cardColor"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintTop_toBottomOf="@id/selectUserButton"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintDimensionRatio="7:3">
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select User"
+            android:textSize="20sp"
+            android:layout_margin="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/titleColor">
+        </TextView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userInputLayout"
+            android:layout_width="match_parent"
 
-        <!-- Meal Details -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/userSpinner"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Milk rice"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
-        </LinearLayout>
+                android:hint="Select Trainer" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Meal"
+            android:textSize="20sp"
+            android:layout_margin="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/titleColor">
+        </TextView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mealInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
-        <!-- Meal Image -->
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/meal_01"
-            android:scaleType="centerCrop"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/mealSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Trainer" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <!-- Add New One Button -->
@@ -101,13 +97,13 @@
         android:id="@+id/addNewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add New One"
+        android:text="Save"
         android:textSize="28sp"
         android:backgroundTint="@color/buttonColor"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@id/mealCard1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="onSubmitClick"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,61 +52,49 @@
 
         <!-- Meal Name -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/mealNameInput"
+            android:id="@+id/tilMealName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietMealName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Meal Name"
-                android:layout_margin="20sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Type -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/typeInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Type"
-                android:layout_margin="20sp" />
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Ingredients -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ingredientsInput"
+            android:id="@+id/tilIngredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietIngredients"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ingredients"
-                android:layout_margin="20sp" />
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Protein -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/proteinInput"
+            android:id="@+id/tilNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Protein"
-                android:layout_margin="20sp" />
+                android:hint="Note"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,6 +112,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/formContainer" />
+        app:layout_constraintTop_toBottomOf="@id/formContainer"
+        android:onClick="onSubmitClick"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

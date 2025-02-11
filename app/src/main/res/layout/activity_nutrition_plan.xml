@@ -34,100 +34,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Meal Buttons Container -->
-    <LinearLayout
-        android:id="@+id/mealButtonsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20sp"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <Button
-            android:id="@+id/dinnerButton"
-            android:layout_width="100sp"
-            android:layout_height="50sp"
-            android:layout_margin="10sp"
-            android:backgroundTint="@color/buttonColor"
-            android:text="Dinner"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/lunchButton"
-            android:layout_width="100sp"
-            android:layout_height="50sp"
-            android:layout_margin="10sp"
-            android:backgroundTint="@color/buttonColor"
-            android:text="Lunch"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/breakfastButton"
-            android:layout_width="100sp"
-            android:layout_height="50sp"
-            android:layout_margin="10sp"
-            android:backgroundTint="@color/buttonColor"
-            android:text="Breakfast"
-            android:textSize="17sp" />
-
-    </LinearLayout>
-
-    <!-- Meal Card -->
-    <LinearLayout
-        android:id="@+id/mealCard"
+    <!-- RecyclerView for Meal Cards -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mealRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="20sp"
-        android:background="@drawable/finished_workouts_shape"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/mealButtonsContainer"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pre-Workout Meal"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Protein: Grilled chicken (100g) or a boiled egg"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_margin="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Carbs: Brown rice (1/2 cup) or a banana"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_margin="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fats: A small handful of almonds (5-6)"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_margin="10sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

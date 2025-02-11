@@ -18,7 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
-    private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private static final String TAG = "MainActivity";
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         // Initialize Firebase
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
         // Check if user is logged in
@@ -50,41 +49,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkUserType(String userId) {
-        db.collection("users").document(userId).get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && task.getResult().exists()) {
-                        DocumentSnapshot document = task.getResult();
-                        String userType = document.getString("userType");
-
-                        if (userType != null) {
-                            switch (userType) {
-                                case "Client":
-                                    startActivity(new Intent(MainActivity.this, UserDashboardActivity.class));
-                                    finish();
-                                    break;
-                                case "Trainer":
-                                    startActivity(new Intent(MainActivity.this, TrainerDashboardActivity.class));
-                                    finish();
-                                    break;
-                                case "Nutrition":
-                                    startActivity(new Intent(MainActivity.this, NutritionistDashboardActivity.class));
-                                    finish();
-                                    break;
-                                default:
-                                    Toast.makeText(MainActivity.this, "Unknown user type", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-                                    finish();
-                            }
-                            finish(); // Close the current activity
-                        }
-                        else {
-                            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-                            finish();
-                        }
-                    } else {
-                        Log.e(TAG, "Error getting document", task.getException());
-                        Toast.makeText(MainActivity.this, "Failed to retrieve user type", Toast.LENGTH_SHORT).show();
+        db.collection("users").document(userId).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult().exists()) {
+                DocumentSnapshot document = task.getResult();
+                String userType = document.getString("userType");
+                if (userType != null) {
+                    switch (userType) {
+                        case "Client": startActivity(new Intent(MainActivity.this, UserDashboardActivity.class));
+                        finish();
+                        break;
+                        case "Trainer": startActivity(new Intent(MainActivity.this, TrainerDashboardActivity.class));
+                        finish();
+                        break;
+                        case "Nutrition": startActivity(new Intent(MainActivity.this, NutritionistDashboardActivity.class));
+                        finish();
+                        break; default: Toast.makeText(MainActivity.this, "Unknown user type", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                        finish();
                     }
-                });
+                    finish(); // Close the current activity
+                }
+                else {
+                    startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                    finish();
+                }
+            } else {
+                Log.e(TAG, "Error getting document", task.getException());
+                Toast.makeText(MainActivity.this, "Failed to retrieve user type", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
