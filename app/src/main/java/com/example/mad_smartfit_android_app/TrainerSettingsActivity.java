@@ -41,4 +41,8 @@ public class TrainerSettingsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), TrainerWorkoutActivity.class));
         finish();
     }
+    public void onSettingsClick(View view){
+        startActivity(new Intent(getApplicationContext(),UserAccountSettingsActivity.class));
+        finish();
+    }
 }

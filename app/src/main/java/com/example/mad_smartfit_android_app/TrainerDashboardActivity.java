@@ -63,7 +63,7 @@ public class TrainerDashboardActivity extends AppCompatActivity {
 
     public void onWorkoutClick(View view) {
         startActivity(new Intent(getApplicationContext(),TrainerWorkoutActivity.class));
-        finish();
+
     }
 
     public void onSettingsClick(View view) {

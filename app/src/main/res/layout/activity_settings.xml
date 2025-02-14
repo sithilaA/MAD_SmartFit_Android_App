@@ -46,7 +46,8 @@
                 android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="Account Setting"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="onSettingsClick"/>
 
             <Button
                 android:id="@+id/btnNotificationSetting"
@@ -56,7 +57,8 @@
                 android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="Notification Setting"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="onNotificationClick"/>
 
             <Button
                 android:id="@+id/btnSOS"
@@ -66,7 +68,8 @@
                 android:backgroundTint="@color/buttonColor"
                 android:paddingHorizontal="20dp"
                 android:text="SOS Setting"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="onSosClick"/>
 
             <Button
                 android:id="@+id/btnHelpSupport"

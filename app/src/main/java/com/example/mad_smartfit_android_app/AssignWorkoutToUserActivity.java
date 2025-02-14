@@ -1,6 +1,7 @@
 package com.example.mad_smartfit_android_app;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,7 @@ public class AssignWorkoutToUserActivity extends AppCompatActivity {
     private Spinner mWorkoutSpinner, mUserSpinner;
     private List<String> userNameList, workoutNameList, userIdList, workoutIdList;
     private String selectedUserName = "", selectedWorkoutName = "", selectedUserID = "", selectedWorkoutID = "";
+    private static final String PREFS_NAME = "reminder_prefs";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -180,6 +182,13 @@ public class AssignWorkoutToUserActivity extends AppCompatActivity {
         documentReference.set(userWorkout).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
+                // Save workout reminder details in SharedPreferences
+                SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("workout_reminder_enabled", true);
+                editor.putString("workout_reminder_details", selectedWorkoutName + " for " + selectedUserName);
+                editor.apply();
+
                 Log.d("AssignWorkout", "Assignment saved successfully");
                 Toast.makeText(AssignWorkoutToUserActivity.this, "Workout assigned successfully!", Toast.LENGTH_SHORT).show();
             }

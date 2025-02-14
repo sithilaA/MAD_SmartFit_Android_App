@@ -41,4 +41,9 @@ public class NutritionSettingsActivity extends AppCompatActivity {
         finish();
     }
 
+    public void onSettingsClick(View view){
+        startActivity(new Intent(getApplicationContext(),UserAccountSettingsActivity.class));
+        finish();
+    }
+
 }

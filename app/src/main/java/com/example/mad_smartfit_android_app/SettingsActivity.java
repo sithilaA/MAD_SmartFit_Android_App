@@ -41,4 +41,17 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),WorkoutsActivity.class));
         finish();
     }
+    public void onSettingsClick(View view){
+        startActivity(new Intent(getApplicationContext(),UserAccountSettingsActivity.class));
+        finish();
+    }
+    public void onNotificationClick(View view){
+        startActivity(new Intent(getApplicationContext(),UserNotificationSettingsActivity.class));
+        finish();
+    }
+    public void onSosClick(View view){
+        startActivity(new Intent(getApplicationContext(),SOSCallActivity.class));
+        finish();
+    }
+
 }

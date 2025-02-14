@@ -45,7 +45,8 @@
             android:backgroundTint="@color/buttonColor"
             android:paddingHorizontal="20dp"
             android:text="Account Setting"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="onSettingsClick"/>
 
         <Button
             android:id="@+id/btnNotificationSetting"

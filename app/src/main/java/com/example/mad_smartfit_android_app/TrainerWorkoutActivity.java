@@ -82,9 +82,11 @@ public class TrainerWorkoutActivity extends AppCompatActivity {
 
     public void onAddWorkoutClick(View view) {
         startActivity(new Intent(getApplicationContext(), TrainerAddWorkoutActivity.class));
+        finish();
     }
 
     public void onAddWorkoutToUserClick(View view) {
         startActivity(new Intent(getApplicationContext(), AssignWorkoutToUserActivity.class));
+        finish();
     }
 }

@@ -13,9 +13,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +32,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class ScheduleAppointmentActivity extends AppCompatActivity {
 
@@ -42,6 +47,7 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
     private List<String> trainerUserIdList,nutritionUserIdList;
     private String selectedTrainer = "",selectedNutrition = "";
     private String selectedTrainerUserID = "",selectedNutritionUserID = "";
+    private static final String PREFS_NAME = "reminder_prefs";
 
     private  String username="";
     @SuppressLint("MissingInflatedId")
@@ -267,13 +273,87 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
         fStore.collection("appointments")
                 .add(appointment)
                 .addOnSuccessListener(documentReference -> {
+                    // Save appointment reminder details in SharedPreferences
+                    SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("appointment_reminder_enabled", true);
+                    editor.putString("appointment_reminder_details", date + " at " + time);
+                    editor.apply();
+
+                    // Schedule a local notification 30 minutes before the appointment time
+                    scheduleAppointmentNotification(date, time);
+
                     Toast.makeText(this, "Appointment scheduled successfully!", Toast.LENGTH_SHORT).show();
-                    finish(); // Close the activity
+                    finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Failed to schedule appointment: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
+    private Calendar getAppointmentCalendar(String date, String time) {
+        try {
+            String[] dateParts = date.split("/");
+            String[] timeParts = time.split(":");
+            int day = Integer.parseInt(dateParts[0].trim());
+            int month = Integer.parseInt(dateParts[1].trim()) - 1; // Calendar months are 0-based
+            int year = Integer.parseInt(dateParts[2].trim());
+            int hour = Integer.parseInt(timeParts[0].trim());
+            int minute = Integer.parseInt(timeParts[1].trim());
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.YEAR, year);
+            cal.set(Calendar.MONTH, month);
+            cal.set(Calendar.DAY_OF_MONTH, day);
+            cal.set(Calendar.HOUR_OF_DAY, hour);
+            cal.set(Calendar.MINUTE, minute);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+            return cal;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Schedules a local notification to fire 30 minutes before the appointment time.
+     */
+    private void scheduleAppointmentNotification(String date, String time) {
+        Calendar appointmentCal = getAppointmentCalendar(date, time);
+        if (appointmentCal == null) {
+            Log.e("ScheduleNotification", "Failed to parse appointment date/time.");
+            return;
+        }
+        // Subtract 30 minutes from the appointment time
+        long triggerTime = appointmentCal.getTimeInMillis() - (30 * 60 * 1000);
+        if (triggerTime <= System.currentTimeMillis()) {
+            // If the trigger time is in the past, do not schedule the notification
+            Log.d("ScheduleNotification", "Trigger time is in the past; skipping scheduling.");
+            return;
+        }
+
+        Intent intent = new Intent(this, NotificationReceiver.class);
+        intent.putExtra("title", "Appointment Reminder");
+        intent.putExtra("message", "Your appointment is in 30 minutes!");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this,
+                1001, // Unique request code
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+            } else {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+            }
+            Log.d("ScheduleNotification", "Notification scheduled for: " + triggerTime);
+        }
+    }
+
+
     public void onBackClick(View view) {
         super.onBackPressed();
         finish();
