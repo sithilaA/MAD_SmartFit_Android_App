@@ -27,6 +27,8 @@
 
     <!-- Item Card -->
 
+    <!-- Bottom Navigation -->
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -35,17 +37,19 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171"
-        tools:layout_editor_absoluteX="78dp">
+        app:layout_constraintVertical_bias="0.134"
+        tools:layout_editor_absoluteX="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select Workout"
-            android:textSize="25sp"
             android:textColor="@color/titleColor"
+            android:textSize="25sp"
             android:textStyle="bold">
 
         </TextView>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/workoutInputLayout"
             android:layout_width="match_parent"
@@ -69,10 +73,12 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.044">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -110,39 +116,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvCaloriesBurned" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgWorkout"
-            android:layout_width="167dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.765"
-        android:gravity="center">
+        app:layout_constraintVertical_bias="0.469">
+
         <Button
             android:id="@+id/btnStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
-            android:text="Start"
             android:onClick="onStartClick"
-            >
-        </Button>
+            android:text="Start"></Button>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
-            android:text="Delete">
-        </Button>
+            android:text="Delete"></Button>
     </LinearLayout>
 
     <LinearLayout

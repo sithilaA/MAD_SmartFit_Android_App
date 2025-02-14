@@ -43,7 +43,7 @@ public class WorkoutsActivity extends AppCompatActivity {
     private Spinner workoutSpinner ;
     private ImageView workoutImg ;
     private List<String> workoutNameList , workoutIdList  ;
-    private String selectedWorkoutName = "" ,  selectedWorkoutID = "", selectedWorkoutImg = "";
+    private String selectedWorkoutName = "" ,  selectedWorkoutID = "", selectedWorkoutImg = "" , selectedWorkoutNote = "";
     private Long selectedCaloriesBurned , selectedDuration ;
 
 
@@ -79,9 +79,9 @@ public class WorkoutsActivity extends AppCompatActivity {
                 selectedWorkoutName = workoutNameList.get(position);
                 fetchWorkoutsFromFirestore();
 
-                    workoutName.setText(selectedWorkoutName);
-                    caloriesBurned.setText(String.valueOf(selectedCaloriesBurned));
-                    duration.setText(String.valueOf(selectedDuration));
+                    workoutName.setText(selectedWorkoutName );
+                    caloriesBurned.setText(String.valueOf(selectedCaloriesBurned)+" Kcal");
+                    duration.setText(String.valueOf(selectedDuration)+" Minutes");
                     //Picasso.get().load(selectedWorkoutImg).into(workoutImg);
 
             }

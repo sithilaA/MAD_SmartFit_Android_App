@@ -36,7 +36,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutV
         Workout workout = workoutList.get(position);
         holder.txtWorkoutName.setText(workout.getWorkoutName());
         holder.txtCaloriesBurned.setText(String.valueOf(workout.getCaloriesBurned()+" KCal"));
-        holder.txtDuration.setText(String.valueOf(workout.getDuration()+" Minits"));
+        holder.txtDuration.setText(String.valueOf(workout.getDuration()+" Minutes"));
         Glide.with(holder.itemView.getContext()).load(workout.getImageUrl()).into(holder.imgWorkout);
     }
 

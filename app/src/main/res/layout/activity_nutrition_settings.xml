@@ -49,26 +49,6 @@
             android:onClick="onSettingsClick"/>
 
         <Button
-            android:id="@+id/btnNotificationSetting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/buttonColor"
-            android:paddingHorizontal="20dp"
-            android:text="Notification Setting"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/btnHelpSupport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/buttonColor"
-            android:paddingHorizontal="20dp"
-            android:text="Help and support"
-            android:textSize="20sp" />
-
-        <Button
             android:id="@+id/btnAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,7 +56,8 @@
             android:backgroundTint="@color/buttonColor"
             android:paddingHorizontal="20dp"
             android:text="About"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="onAboutClick"/>
 
         <Button
             android:id="@+id/btnSignOut"

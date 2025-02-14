@@ -165,19 +165,19 @@ public class AssignMealToUserActivity extends AppCompatActivity {
             return;
         }
         if (selectedMealName.isEmpty()) {
-            Toast.makeText(this, "Please select a workout", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please select a Meal", Toast.LENGTH_SHORT).show();
             return;
         }
 
         documentReference.set(userWorkout).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Log.d("AssignWorkout", "Assignment saved successfully");
-                Toast.makeText(AssignMealToUserActivity.this, "Workout assigned successfully!", Toast.LENGTH_SHORT).show();
+                Log.d("AssignMeal", "Assignment saved successfully");
+                Toast.makeText(AssignMealToUserActivity.this, "Meal assigned successfully!", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(e -> {
-            Log.e("AssignWorkout", "Error assigning workout: " + e.getMessage());
-            Toast.makeText(AssignMealToUserActivity.this, "Failed to assign workout.", Toast.LENGTH_SHORT).show();
+            Log.e("AssignMeal", "Error assigning workout: " + e.getMessage());
+            Toast.makeText(AssignMealToUserActivity.this, "Failed to assign Meal.", Toast.LENGTH_SHORT).show();
         });
 
     }

@@ -60,7 +60,7 @@
         android:id="@+id/sosDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="After pressing the SOS button, help will arrive."
+        android:text="Select an emergency contact number from your saved contacts."
         android:textAlignment="center"
         android:layout_margin="20dp"
         android:textSize="22sp"

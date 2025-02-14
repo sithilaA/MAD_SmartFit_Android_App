@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -25,11 +26,22 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SOSCallActivity extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private FusedLocationProviderClient fusedLocationClient;
     private ImageButton btnFindHospitals;
+
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
+
+    String emergencyServicesNumber;
+    String emergencyContactNumber01;
+    String emergencyContactNumber02;
+
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -51,6 +63,9 @@ public class SOSCallActivity extends AppCompatActivity {
                 getCurrentLocationAndShowHospitals();
             }
         });
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        fetchSosData();
     }
     private void getCurrentLocationAndShowHospitals() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -94,11 +109,35 @@ public class SOSCallActivity extends AppCompatActivity {
                 Toast.makeText(SOSCallActivity.this, "Location permission denied.", Toast.LENGTH_SHORT).show();
             }
         }
-    }
 
+    }
+    public void fetchSosData(){
+
+        String currentUser = fAuth.getCurrentUser().getUid();
+        if (currentUser != null) {
+            DocumentReference documentReference = fStore.collection("users").document(currentUser);
+
+            documentReference.get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                     emergencyServicesNumber = documentSnapshot.getString("EmergencyServicesNumber");
+                     emergencyContactNumber01 = documentSnapshot.getString("EmergencyContactNumber01");
+                     emergencyContactNumber02 = documentSnapshot.getString("EmergencyContactNumber02");
+
+                } else {
+                    Log.e("TAG", "No such document exists");
+                }
+            }).addOnFailureListener(e -> Log.e("TAG", "Error fetching document: ", e));
+        } else {
+            Log.e("TAG", "Error: No authenticated user found.");
+        }
+
+    }
     public void onSosNumber01Click(View view) {
-        String phoneNumber = "1234567890";
-        openDialer(phoneNumber);
+        if(emergencyContactNumber01 == null){
+            Toast.makeText(this, "Emergency contact number not set", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        openDialer(emergencyContactNumber01);
     }
     private void openDialer(String phoneNumber) {
 
@@ -120,13 +159,19 @@ public class SOSCallActivity extends AppCompatActivity {
     }
 
     public void onAmbulanceClick(View view) {
-        String phoneNumber = "0000";
-        openDialer(phoneNumber);
+        if(emergencyServicesNumber == null){
+            Toast.makeText(this, "Emergency contact number not set", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        openDialer(emergencyServicesNumber);
     }
 
     public void onSosNumber02Click(View view) {
-        String phoneNumber = "1234567890";
-        openDialer(phoneNumber);
+        if(emergencyContactNumber02 == null){
+            Toast.makeText(this, "Emergency contact number not set", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        openDialer(emergencyContactNumber02);
     }
     
 }

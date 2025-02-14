@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/txtWorkoutName"
-        android:layout_width="wrap_content"
+        android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:text="Workout Name"
         android:textSize="26sp"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Calories Burned"
-        android:textSize="26sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtWorkoutName" />
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Duration"
-        android:textSize="26sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCaloriesBurned" />

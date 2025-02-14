@@ -69,23 +69,15 @@
             android:id="@+id/btnPendingAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="In Pending Appointment"
+            android:text="Appointment"
             android:textSize="24sp"
+            android:layout_margin="30sp"
             android:backgroundTint="@color/buttonColor"
             android:layout_marginBottom="16dp"
             app:layout_constraintWidth_percent="0"
             android:onClick="onPendingAppointmentClick"/>
 
         <!-- Today Appointment Button -->
-        <Button
-            android:id="@+id/btnTodayAppointment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today Appointment"
-            android:textSize="24sp"
-            android:backgroundTint="@color/buttonColor"
-            app:layout_constraintWidth_percent="0"
-            android:onClick="onTodayAppointmentClick"/>
     </LinearLayout>
 
     <!-- News Feed Section -->

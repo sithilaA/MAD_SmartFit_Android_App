@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -16,7 +17,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-
     <application
         android:name=".MyNotificationApp"
         android:allowBackup="true"
@@ -28,6 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_SmartFit_Android_App"
         tools:targetApi="31">
+        <activity
+            android:name=".AboutUS"
+            android:exported="false" />
+        <activity
+            android:name=".SosSettingActivity"
+            android:exported="false" />
         <activity
             android:name=".TodayAppointmentActivity"
             android:exported="false" />
@@ -106,7 +112,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

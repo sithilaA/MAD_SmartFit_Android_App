@@ -173,4 +173,13 @@ public class UserAccountSettingsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), WorkoutsActivity.class));
         finish();
     }
+    public void onBackClick(View view) {
+        super.onBackPressed();
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish(); // Close the current activity
+    }
 }

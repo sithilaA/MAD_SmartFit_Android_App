@@ -49,12 +49,15 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
     private String selectedTrainerUserID = "",selectedNutritionUserID = "";
     private static final String PREFS_NAME = "reminder_prefs";
 
-    private  String username="";
+    private  String userName;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_appointment);
+
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("USER_NAME");
 
         // Initialize Firebase
         fAuth = FirebaseAuth.getInstance();
@@ -234,28 +237,15 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
             return;
         }
 
-            fStore.collection("users").document(fAuth.getCurrentUser().getUid()).get()
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                username = document.getString("userName");
-                                if (username == null) {
-                                    username = "";
-                                }
-
-                            } else {
-                                Toast.makeText(ScheduleAppointmentActivity.this, "User data not found!", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(ScheduleAppointmentActivity.this, "Failed to fetch data!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+        if (fAuth.getCurrentUser() == null) {
+            Toast.makeText(ScheduleAppointmentActivity.this, "User not logged in!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Prepare data to save to Firestore
         Map<String, Object> appointment = new HashMap<>();
         appointment.put("userID", fAuth.getCurrentUser().getUid());
-        appointment.put("userName", username);
+        appointment.put("userName", userName);
         appointment.put("type", selectedOption);
         appointment.put("date", date);
         appointment.put("time", time);
@@ -357,5 +347,10 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
     public void onBackClick(View view) {
         super.onBackPressed();
         finish();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish(); // Close the current activity
     }
 }

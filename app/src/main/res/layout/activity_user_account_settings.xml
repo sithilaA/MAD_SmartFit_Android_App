@@ -143,42 +143,5 @@
             android:onClick="onSaveClick" />
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="100sp"
-        android:gravity="center"
-        android:background="#90E0EF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageButton
-            android:id="@+id/btnHome"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:background="@drawable/home_svg"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:onClick="onHomeClick"/>
-
-        <ImageButton
-            android:id="@+id/btnWorkouts"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:layout_marginLeft="40sp"
-            android:background="@drawable/dumbbells_svg"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:onClick="onWorkoutsClick"/>
-
-        <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:background="@drawable/setting_svg"
-            android:layout_marginLeft="40sp"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:onClick="onSettingsClick"
-            />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

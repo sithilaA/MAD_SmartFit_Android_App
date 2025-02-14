@@ -292,17 +292,26 @@ public class UserNotificationSettingsActivity extends AppCompatActivity {
     }
 
     public void onHomeClick(View view) {
-        startActivity(new Intent(getApplicationContext(), UserDashboardActivity.class));
+        super.onBackPressed();
         finish();
     }
 
     public void onSettingsClick(View view) {
-        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+        super.onBackPressed();
         finish();
     }
 
     public void onWorkoutClick(View view) {
-        startActivity(new Intent(getApplicationContext(), WorkoutsActivity.class));
+        super.onBackPressed();
         finish();
+    }
+    public void onBackClick(View view) {
+        super.onBackPressed();
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish(); // Close the current activity
     }
 }

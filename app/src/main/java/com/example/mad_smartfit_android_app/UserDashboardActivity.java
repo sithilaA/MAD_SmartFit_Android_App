@@ -2,6 +2,7 @@ package com.example.mad_smartfit_android_app;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,11 +34,12 @@ import java.util.List;
 import java.util.Locale;
 
 public class UserDashboardActivity extends AppCompatActivity {
-
+    private SharedPreferences sharedPreferences;
     private TextView userGreetingText, tvFinishedWorkouts, tvTimeSpent;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private LinearLayout newsContainer;
+    String userName;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -70,12 +72,16 @@ public class UserDashboardActivity extends AppCompatActivity {
         getTodaysWorkoutSummary(tvTimeSpent);
     }
 
+
+
     public void onSettingsClick(View view) {
         startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
         finish();
     }
     public void onBookAppointmentClick(View view) {
-        startActivity(new Intent(getApplicationContext(),AppointmentActivity.class));
+        Intent intent = new Intent(UserDashboardActivity.this, AppointmentActivity.class);
+        intent.putExtra("USER_NAME", userName);
+        startActivity(intent);
 
     }
     public void onNutritionPlanClick(View view) {
@@ -102,7 +108,7 @@ public class UserDashboardActivity extends AppCompatActivity {
                                     username = "";
                                 }
                                 userGreetingText.setText("Welcome, " + username );
-
+                                userName = username;
                             } else {
                                 Toast.makeText(UserDashboardActivity.this, "User data not found!", Toast.LENGTH_SHORT).show();
                             }

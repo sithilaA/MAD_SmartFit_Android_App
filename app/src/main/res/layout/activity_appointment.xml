@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Appointment 01"
+                android:text=""
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Date 2024/11/26"
+                android:text=""
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Time 20:00"
+                android:text=""
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -124,7 +124,7 @@
                 android:id="@+id/tvAppointmentStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status : Pending"
+                android:text=""
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -159,12 +159,12 @@
     <!-- Add Button -->
     <ImageButton
         android:id="@+id/addButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/add_square_svg"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onCreateAppointmentClick"
+        android:src="@drawable/add_circle_svg"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:onClick="onCreateAppointmentClick"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

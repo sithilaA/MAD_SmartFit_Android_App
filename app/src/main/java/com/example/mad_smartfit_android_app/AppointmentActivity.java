@@ -40,6 +40,7 @@ public class AppointmentActivity extends AppCompatActivity {
     private List<String> appontmentIdList,appontmentDateList,appontmentTimeList,appontmentReasonList ,appontmentStatusList ,appontmentZoomLinkList ;
     private String selectedAppontmentID = "",selectedAppontmentDate = "",selectedAppontmentTime = "",selectedAppontmentReason = "",selectedAppontmentStatus = "", selectedAppontmentZoomLink = "";
 
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,8 @@ public class AppointmentActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("USER_NAME");
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -216,7 +219,9 @@ public class AppointmentActivity extends AppCompatActivity {
 
     public void onCreateAppointmentClick(View view) {
         // Start the ScheduleAppointmentActivity
-        startActivity(new Intent(this, ScheduleAppointmentActivity.class));
+        Intent intent = new Intent(AppointmentActivity.this, ScheduleAppointmentActivity.class);
+        intent.putExtra("USER_NAME", userName);
+        startActivity(intent);
     }
 
 }
