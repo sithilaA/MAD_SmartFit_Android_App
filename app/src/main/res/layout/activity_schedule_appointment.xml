@@ -5,148 +5,225 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".ScheduleAppointmentActivity">
 
+    <!-- Back Button and Title -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/baseline_arrow_back_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onBackClick"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Schedule Appointment"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/titleColor" />
+    </LinearLayout>
+
+    <!-- Input Fields -->
+    <LinearLayout
+        android:id="@+id/inputFields"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#CAF0F8"
-        >
-        <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Radio Group for Trainer and Nutrition -->
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            >
-            <ImageButton
-                android:layout_width="66sp"
-                android:layout_height="66sp"
-                android:layout_margin="5sp"
-                android:background="@drawable/baseline_arrow_back_24"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-            <TextView
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioTrainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Trainer"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioNutrition"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nutrition" />
+        </RadioGroup>
+        <!-- Replace the Trainer Input with a Spinner -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/trainerInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <Spinner
+                android:id="@+id/trainerSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Schedule Appointment"
-                android:textSize="26sp"
-                android:layout_margin="5sp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="#03045e">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
+                android:hint="Select Trainer" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nutritionInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp"
-            >
-            <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <Spinner
+                android:id="@+id/nutritionSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_person_24"
-                    android:hint="Trainer" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="160sp"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="130sp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20sp"
-                        android:drawableLeft="@drawable/date_svg"
-                        android:hint="Date" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="160sp"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="130sp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20sp"
-                        android:drawableLeft="@drawable/time_svg"
-                        android:hint="Time" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_alternate_email_24"
-                    android:hint="Resone" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/card_svg"
-                    android:hint="Card Number" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/card_svg"
-                    android:hint="Exp Date" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/card_svg"
-                    android:hint="Card Holder Name" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:hint="Select Trainer" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Date and Time Inputs -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            >
-            <Button
-                android:layout_width="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <!-- Date Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dateInputLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:text="Submit"
-                android:backgroundTint="#0077b6"
-                android:textSize="30sp">
-            </Button>
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dateInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date"
+                    android:drawableStart="@drawable/date_svg"
+                    android:drawablePadding="8dp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Time Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/timeInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/timeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Time"
+                    android:drawableStart="@drawable/time_svg"
+                    android:drawablePadding="8dp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
+        <!-- Reason Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Reason"
+                android:drawableStart="@drawable/baseline_alternate_email_24"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Card Number Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Card Number"
+                android:drawableStart="@drawable/card_svg"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Expiry Date Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Exp Date"
+                android:drawableStart="@drawable/card_svg"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Card Holder Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Card Holder Name"
+                android:drawableStart="@drawable/card_svg"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="24sp"
+        android:backgroundTint="@color/buttonColor"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/inputFields"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,151 +5,143 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".UserAccountSettingsActivity">
+
+    <!-- Create Account Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Account Settings"
+        android:textSize="36sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/titleColor"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Input Fields Container -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/inputContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#CAF0F8"
-        >
-        <LinearLayout
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+        <!-- UserName -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Account Setting"
-                android:textSize="36sp"
-                android:layout_margin="10dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="#03045e">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
+                android:hint="UserName"
+                android:inputType="textPersonName"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Full Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp"
-            >
-            <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietFullName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_person_24"
-                    android:hint="UserName" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/user_svgrepo_com"
-                    android:hint="Full Name" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/baseline_alternate_email_24"
-                    android:hint="Email" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/phone_flip_svgrepo_com"
-                    android:hint="Phone Number" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/gender_mark_1_svgrepo_com"
-                    android:hint="Gender" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20sp"
-                    android:drawableLeft="@drawable/lock_svgrepo_com"
-                    android:hint="Password" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-            <Button
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:text="Save"
-                android:backgroundTint="#0077b6"
-                android:textSize="20sp"></Button>
+                android:hint="Full Name"
+                android:inputType="textPersonName"
+                android:drawableStart="@drawable/user_svgrepo_com"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-
-        </LinearLayout>
-        <LinearLayout
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:background="#90E0EF"
-            >
-            <ImageButton
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:background="@drawable/home_svg"
-                tools:ignore="SpeakableTextPresentCheck"
-                >
-            </ImageButton>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-            <ImageButton
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:layout_marginLeft="40sp"
-                android:background="@drawable/dumbbells_svg"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-            <ImageButton
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:background="@drawable/setting_svg"
-                android:layout_marginLeft="40sp"
-                tools:ignore="SpeakableTextPresentCheck"
-                >
-            </ImageButton>
-        </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/baseline_alternate_email_24"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Phone Number -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietMoblieNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:drawableStart="@drawable/phone_flip_svgrepo_com"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <!-- Password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:drawableStart="@drawable/lock_svgrepo_com"
+                android:drawablePadding="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
+    <!-- Buttons Container -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/inputContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Save"
+            android:backgroundTint="@color/buttonColor"
+            android:textSize="20sp"
+            android:onClick="onSaveClick" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,168 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".TrainerWorkoutActivity">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workouts"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/titleColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnAddWorkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Workout"
+        android:textSize="24sp"
+        android:backgroundTint="@color/buttonColor"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:onClick="onAddWorkoutClick"/>
+
+    <Button
+        android:id="@+id/btnAddWorkoutToUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Workout to User"
+        android:textSize="24sp"
+        android:backgroundTint="@color/buttonColor"
+        app:layout_constraintTop_toBottomOf="@id/btnAddWorkout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:onClick="onAddWorkoutToUserClick"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/workoutRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAddWorkoutToUser"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"/>
+
+    <!-- Bottom Navigation -->
     <LinearLayout
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#CAF0F8">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Workouts"
-                android:textSize="36sp"
-                android:layout_margin="10dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="#03045e">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add New Workout"
-                android:backgroundTint="#0077B6"
-                android:textSize="24sp">
-            </Button>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Workout to user"
-                android:backgroundTint="#0077B6"
-                android:textSize="24sp">
-            </Button>
-        </LinearLayout>
+        android:layout_height="100sp"
+        android:gravity="center"
+        android:background="@color/bottomNavigationColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
-            android:layout_width="350sp"
-            android:layout_height="150sp"
-            android:layout_margin="20sp"
-            android:background="#90E0EF"
-            android:orientation="horizontal"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cardio Kickstart"
-                    android:textSize="26sp"
-                    android:layout_margin="10sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10sp">
-                </TextView>
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/home_svg"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right">
-                <ImageView
-                    android:layout_gravity="right"
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
-                    android:background="@drawable/workout_03"
-                    tools:ignore="SpeakableTextPresentCheck">
-                </ImageView>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="350sp"
-            android:layout_height="150sp"
-            android:layout_margin="20sp"
-            android:background="#90E0EF"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Power Hour"
-                    android:textSize="26sp"
-                    android:layout_margin="10sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10sp">
-                </TextView>
+        <ImageButton
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="40sp"
+            android:background="@drawable/dumbbells_svg"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right">
-                <ImageView
-                    android:layout_gravity="right"
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
-                    android:background="@drawable/workout_04"
-                    tools:ignore="SpeakableTextPresentCheck">
-                </ImageView>
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100sp"
-                    android:gravity="center"
-                    android:background="#90E0EF"
-                    >
-                    <ImageButton
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:background="@drawable/home_svg"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        >
-                    </ImageButton>
-
-                    <ImageButton
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:layout_marginLeft="40sp"
-                        android:background="@drawable/dumbbells_svg"
-                        tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-                    <ImageButton
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:background="@drawable/setting_svg"
-                        android:layout_marginLeft="40sp"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        >
-                    </ImageButton>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/setting_svg"
+            android:layout_marginLeft="40sp"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"/>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

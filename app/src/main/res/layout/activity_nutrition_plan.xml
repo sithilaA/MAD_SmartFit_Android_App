@@ -5,123 +5,45 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".NutritionPlanActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#CAF0F8">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <ImageButton
-                android:layout_width="66sp"
-                android:layout_height="66sp"
-                android:layout_margin="10sp"
-                android:background="@drawable/baseline_arrow_back_24"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Nutrition Plan "
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="#0096c7"
-                android:layout_margin="10sp">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-            <Button
-                android:layout_width="100sp"
-                android:layout_height="50sp"
-                android:layout_margin="10sp"
-                android:backgroundTint="#00B4D8"
-                android:text="Dinner"
-                android:textSize="18sp">
-            </Button>
-            <Button
-                android:layout_width="100sp"
-                android:layout_height="50sp"
-                android:layout_margin="10sp"
-                android:backgroundTint="#00B4D8"
-                android:text="Lunch"
-                android:textSize="18sp">
-            </Button>
-            <Button
-                android:layout_width="100sp"
-                android:layout_height="50sp"
-                android:layout_margin="10sp"
-                android:backgroundTint="#00B4D8"
-                android:text="Breakf"
-                android:textSize="17sp">
-            </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            >
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="66sp"
+        android:layout_height="66sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:onClick="onBackClick"/>
 
-            <LinearLayout
-                android:layout_width="350sp"
-                android:layout_height="350sp"
-                android:layout_margin="20sp"
-                android:background="@drawable/finished_workouts_shape"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pre-Workout Meal"
-                        android:textSize="36sp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="10sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Protein: Grilled chicken (100g) or a boiled egg"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_margin="10sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Carbs: Brown rice (1/2 cup) or a banana"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_margin="10sp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fats: A small handful of almonds (5-6)"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_margin="10sp">
-                    </TextView>
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Nutrition Plan "
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/titleColor"
+        android:layout_margin="10sp"
+        app:layout_constraintTop_toBottomOf="@id/backButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-                </LinearLayout>
-
-            </LinearLayout>
+    <!-- RecyclerView for Meal Cards -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mealRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
 
-        </LinearLayout>
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

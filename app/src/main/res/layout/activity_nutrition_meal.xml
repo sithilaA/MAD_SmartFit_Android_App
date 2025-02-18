@@ -5,164 +5,103 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".NutritionMealActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Meal"
+        android:textSize="36sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/titleColor"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Buttons Container -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/buttonsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#CAF0F8">
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/addNewMealButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Meal"
-                android:textSize="36sp"
-                android:layout_margin="10dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="#03045e">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:text="Add New Meal"
+            android:backgroundTint="@color/buttonColor"
+            android:textSize="24sp"
+            android:onClick="onAddNewMealClick"/>
+
+        <Button
+            android:id="@+id/addMealToUserButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add New Meal"
-                android:backgroundTint="#0077B6"
-                android:textSize="24sp">
-            </Button>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Meal to user"
-                android:backgroundTint="#0077B6"
-                android:textSize="24sp">
-            </Button>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="350sp"
-            android:layout_height="150sp"
-            android:layout_margin="20sp"
-            android:background="#90E0EF"
-            android:orientation="horizontal"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Milk rice"
-                    android:textSize="26sp"
-                    android:layout_margin="10sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10sp">
-                </TextView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right">
-
-                <ImageView
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
-                    android:layout_gravity="right"
-                    android:background="@drawable/meal_01"
-                    tools:ignore="SpeakableTextPresentCheck"></ImageView>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="350sp"
-            android:layout_height="150sp"
-            android:layout_margin="20sp"
-            android:background="#90E0EF"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chicken biryani"
-                    android:textSize="26sp"
-                    android:layout_margin="10sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10sp">
-                </TextView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right">
-
-                <ImageView
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
-                    android:layout_gravity="right"
-                    android:background="@drawable/meal_02"
-                    tools:ignore="SpeakableTextPresentCheck"></ImageView>
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100sp"
-                    android:gravity="center"
-                    android:background="#90E0EF"
-                    >
-                    <ImageButton
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:background="@drawable/home_svg"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        >
-                    </ImageButton>
-
-                    <ImageButton
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:layout_marginLeft="40sp"
-                        android:background="@drawable/dumbbells_svg"
-                        tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-                    <ImageButton
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:background="@drawable/setting_svg"
-                        android:layout_marginLeft="40sp"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        >
-                    </ImageButton>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+            android:text="Add Meal to user"
+            android:backgroundTint="@color/buttonColor"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:onClick="onAddNewMealToUserClick"/>
 
     </LinearLayout>
+
+    <!-- RecyclerView for Meal Cards -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mealRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonsContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation" />
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:gravity="center"
+        android:background="#90E0EF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/home_svg"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="onHomeClick"/>
+
+        <ImageButton
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="40sp"
+            android:background="@drawable/nutrition_svg"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/setting_svg"
+            android:layout_marginLeft="40sp"
+            tools:ignore="OnClick,SpeakableTextPresentCheck"
+            android:onClick="onSettingsClick"/>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
