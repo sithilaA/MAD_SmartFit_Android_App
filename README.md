@@ -18,7 +18,7 @@ The **SmartFit App** is a digital fitness platform that connects users with pers
 - **Health Education Tips** – Latest health trends, fitness tips, and nutrition advice.
 - **Progress Tracking** – Users can upload and compare progress photos.
 - **Appointment Scheduling** – Trainers and nutritionists can manage client appointments, share workout plans, and schedule virtual meetings.
-- 
+  
 ## Interface
 
 Login and register
